@@ -1,0 +1,119 @@
+{% load static %}
+{% include "users/header4.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row wishdata ">
+        <div class="col-lg-12">
+            <div class="box-element">
+                <a class="btn btn-dark" href="{% url 'store' %}">&#x2190; Back to store</a> 
+                <br>
+                <br>
+    
+    
+            </div>
+    
+            <br>
+            <div class="box-element ">
+                <div class="wishlist-row">
+                    <div style="flex:2"></div>
+                    <div style="flex:1"><strong>Books</strong></div>
+                    <div style="flex:1"><strong>Price</strong></div>
+                    <div style="flex:2"><strong>Action</strong></div>
+                </div>
+{% if wishlist_items %}
+    <div class="row">
+        {% for item in wishlist_items %}
+        <div class="cart-row book_data">
+            <div style="flex:2"><img class="row-image" src="{{ item.book.coverImg }}" class="card-img-top" alt="{{ item.book.title }}"></div>
+            <div style="flex:1"><p>{{ item.book.title }}</p></div>
+            
+            <div style="flex:1"><p>Rs.{{ item.book.price }}</p></div>
+         
+            <div style="flex:2">
+                
+                <a href="{% url 'book_detail' book_id=item.book.pk %}"><button class="btn btn-info "><i class="bi bi-eye"></i></button></a>
+                    
+
+                    <a href="{% url 'removewishlist' item.id %}" class="btn btn-danger"><i class="bi bi-trash"></i></a>
+
+            </div>    
+         </div>
+        {% endfor %}
+    </div>
+    
+{% else %}
+    <p>Your wishlist is empty</p>
+{% endif %}
+</div>
+<div class="desc"></div>
+<style>
+
+    .row{
+        margin-top: 30px;
+    }
+    .box-element{
+        box-shadow: hsl(0, 0%, 80%) 0 0 16px;
+        background-color: #fff;
+        border-radius: 4px;
+        padding: 10px;
+    }
+    
+    .wishlist-row{
+        display: flex;
+        align-items: flex-stretch;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #ececec;
+    }
+    
+    .quantity{
+        display: inline-block;
+        font-weight: 700;
+        padding-right: 10px;
+    }
+    
+    .row-image{
+        width: 100px;
+        height: 50px;
+    }
+    
+    .chg-quantity{
+        width: 12px;
+        cursor: pointer;
+        display: block;
+        margin-bottom: 3px;
+    }
+    .btn:hover {
+        background-color: white;
+        color: black;
+    
+    }
+    
+    .cart-row{
+        display: flex;
+        align-items: flex-stretch;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #ececec;
+    }
+    .desc{
+        height:50px;
+    }
+    .button-margin{
+        margin-right: 7px;
+      }
+    
+    </style>
+{% endblock content %}
+{%include "footer.html"%}
+<style>
+    #site1{
+       
+       min-width:1276px;
+       margin-left:-87px;
+      
+    }
+   </style>
+   
+        

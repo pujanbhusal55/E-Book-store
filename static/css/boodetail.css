@@ -1,0 +1,94 @@
+.row{
+    margin-top: 30px;
+}
+#bookimage img{
+    height:470px;
+    width:350px;
+    min-height:470px;
+    max-height:470px;
+
+    
+}
+.price1{
+    color: rgb(255, 72, 0);
+    font-weight: 600;
+    font-size: 20px
+}
+
+.wishlist {
+    width: 200px;
+    height: 38px;
+    border-radius: 5px;
+    
+    background: rgba(255, 0, 0, 0.658);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.5s all;
+    font-size: 15px;
+   
+    
+
+}
+
+.wishlist:hover {
+    color: white;
+    background-color:#de3918;
+    
+}
+
+ .cart{
+    background-color: rgba(0, 119, 255, 0.753);
+    color:white;
+    width: 200px;
+}
+
+.cart:hover {
+     color: white;
+    background-color: #0767e3;;
+    
+} 
+
+.fa-cart-plus, .fa-heart {
+    font-size: 23px;
+    
+    
+}
+
+.fa-cart-plus{
+    color: white;
+    margin-right:5px;
+    
+    
+}
+
+.fa-heart {
+    color:white;
+    
+}
+
+#item{
+    
+
+}
+.desc{
+    height:50px;
+}
+
+#textbutton{
+    color:white;
+}
+
+#messagesize{
+width:300px;
+top:24%;
+right:0%;
+margin-left:800px;
+
+
+}
+.button-margin{
+margin-right: 7px;
+}
+

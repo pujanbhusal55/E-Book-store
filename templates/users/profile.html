@@ -1,0 +1,67 @@
+{% include "users/header4.html" %}
+
+{% block content %}
+<style>
+.container {
+  margin-top: 50px;
+}
+
+.profiledown{
+  height:20px;
+}
+.button-margin{
+  margin-right: 7px;
+}
+.delete-btn {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-top:-180px;
+  height:40px;
+  border-radius: 10px;
+}
+#deletebutton{
+  margin-top:-30px;
+  margin-left:300px;
+  width:200px;
+  height:100px;
+}
+
+  
+#givingmargin{
+  margin-top:-110px;
+}
+</style>
+
+<div class="container "> 
+  <div class="row"> <div class="col-md-3 border-right"> 
+      <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+          <img class="rounded-circle mt-5" ><i
+          class="fa fa-user-circle" style="font-size: 200px;"></i>
+          <span class="font-weight-bold">{{request.user.username}}</span>
+          <span class="text-black-50">{{request.user.email}}</span><span> </span></div> </div> 
+          <div class="col-md-5 border-right"> <div class="p-3 py-5"> 
+              <div class="d-flex justify-content-between align-items-center mb-3"> <h4 class="text-right">Profile Settings</h4>
+               </div> <div class="row mt-2"> <div class="col-md-6">
+                   <label class="labels">Name</label><div class="form-control"  >{{request.user.first_name}}</div> </div>
+                   <div class="col-md-6"><label class="labels">Surname</label><div class="form-control"  >{{request.user.last_name}}</div></div> </div> 
+                   <div class="row mt-3"> <div class="col-md-12"><label class="labels">Username</label><div class="form-control"  >{{request.user.username}}</div></div> 
+                   <div class="col-md-12"><br><label class="labels">Email ID</label> <div class="form-control"  >{{request.user.email}}</div></div>
+
+                      <div class="mt-5 text-center" id="givingmargin"><button class="btn btn-info" > <a href="{% url 'password_change' %}"> Change Password</a></button></div>
+                      <div class="deletaccount">  
+                        <form action="{% url 'delete_account' %}" method="POST" id="deletebutton" onsubmit="return confirm('Are you sure you want to delete your account?');">
+                          {% csrf_token %}
+                          <button class="delete-btn" type="submit">Delete Account</button>
+                        </form>
+                      </div>
+                  </div> </div>  
+</div>
+</div></div>
+<div class="profiledown">
+</div>
+{% endblock content %}
+{%include "footer.html"%}
+
+   

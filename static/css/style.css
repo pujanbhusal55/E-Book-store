@@ -1,0 +1,137 @@
+
+#hea{
+  width:1262px;
+}
+.navbar-brand {
+  font-size: 1.5rem; 
+}
+.navbar-nav {
+  margin-left: 150px;
+  margin-right: auto;
+}
+.navbar-nav .form-control {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+.navbar-nav .btn-outline-success {
+  border-color: #28a745;
+  color: #28a745;
+}
+.navbar-nav .btn-outline-success:hover {
+  background-color: #28a745;
+  color: #fff;
+}
+.navbar-nav .nav-link {
+  margin-left: 1.5rem;
+  font-size: 1rem;
+}
+@media (max-width: 767.98px) {
+  .navbar-nav {
+    margin-left: 0;
+  }
+  .navbar-nav .nav-link {
+    margin-left: 0;
+  }
+}
+
+.form-control {
+  border-radius: 0;
+}
+.fa-search {
+  color: white;
+}
+
+.w3l_offers{
+  font-size: 15px
+  
+}
+
+.w3l_offers a{
+  font-size: 1.0em;
+    color: #c7cbb4;
+    text-decoration: none;
+    padding: .5em 3em;
+    background: #7e8e86;
+  display:block;
+}
+.d-flex{
+    
+  right-margin:10em;
+   
+    
+}
+.nav-item {
+  font-size: 80px;
+
+}
+.bi bi-book, .profile-icon {
+  position:absolute;
+  margin-right:-10px;
+  
+  
+  padding: 10px 20px;
+  font-size: 40px;
+}
+.container {
+    
+  justify-content: center;
+}
+
+#ebookbutton {
+  position:absolute;
+  left:1%;
+  top:2%;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 4px;
+  margin-top:10px;
+}
+
+#ebookbutton:hover{
+  background-color:#7a7777;
+}
+
+#searchbutton{
+  border-radius: 4px;
+}
+
+#buttonicon{
+  margin-left:-2px;
+  margin-top:-0.5px;
+}
+
+#buttonicon:hover{
+  background-color:#7a7777;
+}
+
+#cartchange{
+  margin-left:180px;
+  font-size:20px;
+  
+}
+
+#wishlistblack{
+  color:black;
+  font-size:15px;
+}
+
+#navbarDropdownMenuLink{
+  font-size:20px;
+  margin-top:3px;
+}
+
+#forsearch{
+  position:absolute;
+  left:40% !important;
+  top:4%;
+  z-index:999;
+  margin-top:10px;
+  
+}
+#bookmy{
+  position:absolute;
+}
+

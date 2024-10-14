@@ -1,0 +1,234 @@
+{% block content %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+     <!-- Required meta tags -->
+     
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ 
+    
+    <title>E-Book store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" integrity="sha512-FSL9m4xFZbH+y+hnBNcJnoMFQq3v/6n5U6VT9C6bvwJNp5nM6hh0B1nvMnoJ2nhgPqUIz6U5Ot6XSMbLUeRjqA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+
+  </head>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <div class="w3l_offers">
+          <a href="{% url 'store' %}" id="ebookbutton">Get E-Book</a>
+        </div>
+          <button type="button" class="navbar-toggler bg-light" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+        <ul class="navbar-nav me-auto">
+          <div class="navbar-nav">
+          </div>
+
+           <!-- 
+          <form action="{% url 'search' %}" method="get"  class="d-flex">
+              <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Enter a book title" style="height: fit-content;">
+                  <button type="submit" name="q"  class="btn btn-secondary"><i class="fa fa-search" ></i></button>
+              </div>
+          </form>
+
+           -->
+           <div id="forsearch">
+            <form action="{% url 'search' %}" method="get" class="d-flex">
+              <div class="input-group">
+                <input type="text" id="searchbutton" name="q" class="form-control" placeholder="Enter a book title" style="height: fit-content;" required>
+                <button type="submit" class="btn btn-secondary" id="buttonicon"><i class="fa fa-search"></i></button>
+              </div>
+            </form>
+          </div>
+          
+
+        </ul>
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              
+              <a class="nav-link" id="cart-total" href="{% url 'my_books'%}">
+                <i class="bi bi-book button-margin" id="cartchange" id="manageicon"></i>
+              </a>
+              
+
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fas fa-user user-margin"></i>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="{% url 'users-profile'%}"><i class="fas fa-user"></i> Profile</a></li>
+                <li><a class="dropdown-item" href="{% url 'wishdetails' %}"><i class="fa fa-heart" id="wishlistblack"></i> Wishlist</a></li>
+                <li><a class="dropdown-item" href="{% url 'logout'%}"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+              </ul>
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+  
+  
+<style>
+
+  body : {background-color:red;        
+  }
+
+  #hea{
+    width:1262px;
+  }
+  .navbar-brand {
+    font-size: 1.5rem; 
+  }
+  .navbar-nav {
+    margin-left: 150px;
+    margin-right: auto;
+  }
+  .navbar-nav .form-control {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .navbar-nav .btn-outline-success {
+    border-color: #28a745;
+    color: #28a745;
+  }
+  .navbar-nav .btn-outline-success:hover {
+    background-color: #28a745;
+    color: #fff;
+  }
+  .navbar-nav .nav-link {
+    margin-left: 1.5rem;
+    font-size: 1rem;
+  }
+  @media (max-width: 767.98px) {
+    .navbar-nav {
+      margin-left: 0;
+    }
+    .navbar-nav .nav-link {
+      margin-left: 0;
+    }
+  }
+
+  .form-control {
+    border-radius: 0;
+  }
+  .fa-search {
+    color: white;
+  }
+ 
+  .w3l_offers{
+    font-size: 15px
+    
+  }
+
+  .w3l_offers a{
+    font-size: 1.0em;
+      color: #c7cbb4;
+      text-decoration: none;
+      padding: .5em 3em;
+      background: #7e8e86;
+    display:block;
+  }
+  .d-flex{
+      
+    right-margin:10em;
+     
+      
+  }
+  .nav-item {
+    font-size: 80px;
+
+  }
+  .bi bi-book, .profile-icon {
+    position:absolute;
+    margin-right:0px;
+    
+    
+    padding: 10px 20px;
+    font-size: 40px;
+  }
+  
+  .container {
+      
+    justify-content: center;
+  }
+  
+  #ebookbutton {
+    position:absolute;
+    left:1%;
+    top:2%;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 4px;
+    margin-top:10px;
+  }
+
+  #ebookbutton:hover{
+    background-color:#7a7777;
+  }
+
+  #searchbutton{
+    border-radius: 4px;
+  }
+
+  #buttonicon{
+    margin-left:-2px;
+    margin-top:-0.5px;
+  }
+
+  #buttonicon:hover{
+    background-color:#7a7777;
+  }
+
+  #cartchange{
+    margin-left:180px;
+    font-size:20px;
+    
+  }
+
+  #wishlistblack{
+    color:black;
+    font-size:15px;
+  }
+
+  #navbarDropdownMenuLink{
+    font-size:20px;
+    margin-top:3px;
+  }
+
+  #forsearch{
+    position:absolute;
+    left:40% !important;
+    top:4%;
+    z-index:999;
+    margin-top:10px;
+    
+  }
+  #bookmy{
+    position:absolute;
+  }
+  
+  .dropdown-toggle {
+    width: 75%;
+  }
+</style>   
+
+ <script>
+    const dropdown = document.querySelector('.dropdown');
+
+dropdown.addEventListener('click', function() {
+  this.classList.toggle('active');
+});
+ </script>
+ {% endblock content %}
+
+ 

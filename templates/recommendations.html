@@ -1,0 +1,19 @@
+{% load static %}
+{% include "users/header4.html" %}
+
+{% block content %}
+  <h1>Recommended Books</h1>
+  {% if error_message %}
+    <p>{{ error_message }}</p>
+  {% else %}
+    {% for book in related_books %}
+      <div>
+        <h2>{{ book.title }}</h2>
+        <p>Author: {{ book.author }}</p>
+        <p>Description: {{ book.description }}</p>
+        <img src="{{ book.coverImg }}" alt="{{ book.title }} Cover">
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endblock %}
+

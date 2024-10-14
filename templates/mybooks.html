@@ -1,0 +1,119 @@
+
+{% load static %}
+{% include "users/header4.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-11">
+            <div class="box-element ">
+                <div class="wishlist-row">
+                    <div style="flex:2"></div>
+                    <div style="flex:1"><strong>Books</strong></div>
+                    <div style="flex:1"><strong>Price</strong></div>
+                    <div style="flex:2"><strong>Action</strong></div>
+                </div>
+{% if mybooks%}
+    <div class="row">
+        {%for book in mybooks%}
+        <div class="cart-row book_data">
+            <div style="flex:2"><img class="row-image" src="{{book.book.coverImg}}" class="card-img-top" alt="{{ book.book.title }}"></div>
+            <div style="flex:1"><p>{{book.book.title}}</p></div>
+            
+            <div style="flex:1"><p>Rs.{{ book.book.price }}</p></div>
+         
+            <div style="flex:2">
+                
+                <a href="{{book.url}}"><button class="btn btn-info"><i class="bi bi-eye"></i>Read book</button></a>
+                    
+            </div>  
+           
+         </div>
+        {% endfor %}
+    </div>
+    
+{% else %}
+    <p>Your wishlist is empty</p>
+{% endif %}
+</div>
+<div class="desc"></div>
+<style>
+
+    .row{
+        margin-top: 30px;
+    }
+    .box-element{
+        box-shadow: hsl(0, 0%, 80%) 0 0 16px;
+        background-color: #fff;
+        border-radius: 4px;
+        padding: 10px;
+    }
+    
+    .wishlist-row{
+        display: flex;
+        align-items: flex-stretch;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #ececec;
+    }
+    
+    .quantity{
+        display: inline-block;
+        font-weight: 700;
+        padding-right: 10px;
+    }
+    
+    .row-image{
+        width: 100px;
+        height: 50px;
+    }
+    
+    .btn:hover {
+        background-color: white;
+        color: black;
+    
+    }
+    
+    .cart-row{
+        display: flex;
+        align-items: flex-stretch;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #ececec;
+    }
+    .container{
+        width:900px;
+    }
+    .desc{
+        height:110px;
+    }
+    .button-margin{
+        margin-right: 7px;
+      }
+    
+    </style>
+
+
+   
+    <script>
+    
+      </script> 
+{% endblock content %}       
+<br>
+{% include "footer.html" %}
+<style>
+    #site1{
+       
+       min-width:1270px;
+       max-width:1270px;
+       margin-left:-202px;
+       
+      
+    }
+    #contact{
+        margin-left:320px;
+    }
+    #aboutside{
+        margin-left:-100px;
+    }
+   </style>

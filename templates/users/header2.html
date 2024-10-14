@@ -1,0 +1,150 @@
+<!-- header -->
+{% load static %}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+<style>
+  
+  
+
+@media (max-width:992px){
+  .badge{
+    width: 20px;
+  }
+
+  .navbar-nav{
+ 
+    display: inline-block;
+    
+  }
+
+  .dropdown-content.hide {
+    display: none;
+  }
+
+  .dropdown-content.show {
+    display: block;
+  }
+ 
+  
+}
+</style>
+
+
+ 
+
+
+              
+              {% if request.user.is_authenticated %}
+              <div class="m-0">
+                <nav class="navbar navbar-expand-lg navbar-light bg-dark" >
+                    <div class="container-fluid">
+                      <div class="w3l_offers">
+                        <a href="{% url 'store' %} ">Shop Now !</a>
+                      </div>
+                        <button type="button" class="navbar-toggler bg-light" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                          
+                            <div class="navbar-nav" >
+                            </div>
+                            <form action="{% url 'search' %}" method="get" class="d-flex">
+                              <div class="input-group" style="margin-top:15px;">
+                                  <input type="text" class="form-control" name="query"  placeholder="Search" style="height: fit-content;">
+                                  <button type="submit" class="btn btn-secondary"><i class="fa fa-search"></i></button>
+                              </div>
+                          </form>
+                          
+
+
+              
+                          <div class="navbar-nav" style="border-top: none">
+                            <span class="badge bg-c-red" style="height: 20px;"></span>
+                            <a href="">
+                              <i class="fa fa-book" style="color: aliceblue; font-size: 20px; margin-right: 50px; margin-top: 22px;">
+                                <br>
+                                <br>
+  
+                              </i>
+                            
+                            </a>
+                            <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: aliceblue; font-size: 20px; margin-right: 100px; margin-top: 9px;">
+                                <i class="fas fa-user user-margin" style="color: aliceblue; font-size: 20px; margin-right: 3px; margin-top: 0px;"></i>
+                                
+                              </a>
+                              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="{% url 'users-profile'%}"><i class="fas fa-user"></i> Profile</a></li>
+                                <li><a class="dropdown-item" href="{% url 'wishdetails' %}"><i class="fa fa-heart" id="wishlistblack"></i> Wishlist</a></li>
+                                <li><a class="dropdown-item" href="{% url 'logout'%}"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                              </ul>
+                            </li>
+                            <div class="w3l_header_right1" style="margin-left: 20px;">
+                              <div class="contain">
+                                <div class="dropdown">
+                                  
+                                  </div>
+                                </div>
+                          <script>
+                         
+                              const dropdown = document.querySelector('.dropdown');
+                              const dropdownContent = dropdown.querySelector('.dropdown-content');
+                            
+                              dropdown.addEventListener('click', () => {
+                                dropdownContent.classList.toggle('show');
+                              });
+                           
+                            
+
+                          </script>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+
+                {% else %}
+                <div class="m-0">
+                  <nav class="navbar navbar-expand-lg navbar-light bg-dark" >
+                      <div class="container-fluid">
+                        <div class="w3l_offers">
+                          <a href=" ">Today's special Offers !</a>
+                        </div>
+                          <button type="button" class="navbar-toggler bg-light" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                              <span class="navbar-toggler-icon"></span>
+                          </button>
+                          <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                            
+                              <div class="navbar-nav">
+                              </div>
+                              <form action="{% url 'search' %}" method="get"  class="d-flex">
+                                  <div class="input-group">
+                                      <input type="text" class="form-control" placeholder="Search" style="height: fit-content;">
+                                      <button type="button" name="query"  class="btn btn-secondary"><i class="fa fa-search" ></i></button>
+                                  </div>
+                              </form>
+  
+                <div class="navbar-nav" style="border-top: none">
+                  <a href="{% url 'login' %}" class="nav-item nav-link" style="margin-right: 50px;font-size: larger;color: aliceblue
+                  ;"><i class="fa fa-user"><span>Login</span></i></a> 
+                  <a href="{% url 'reg' %}" class="nav-item nav-link" style="margin-right: 80px;font-size: larger; color: aliceblue;"><i class="fa fa-user"><span>Register</span></i></a>
+              </div>
+          </div>
+          {% endif %}
+      </div>
+  </nav>
+</div>
+
+
+ 
+
+ 
+
+<!-- //header -->s

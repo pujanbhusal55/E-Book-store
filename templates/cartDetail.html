@@ -1,0 +1,99 @@
+{% load static %}
+{% include "users/header4.html" %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box-element">
+                <a class="btn btn-dark" href="{% url 'store' %}">&#x2190; Continue Shopping</a>
+                <br>
+                <br>
+                <table class="table">
+                    <tr>
+                        <th><h5>Items: <strong>{{items}}</strong></h5></th>
+                        <th><h5>Total:<strong> Rs.{{ total }} </strong></h5></th>
+                        <th>
+                            <a style="float:right; margin:5px;" class="btn btn-primary" href="{% url 'checkout' %}">Checkout</a>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+            <br>
+            <div class="box-element">
+                <div class="cart-row">
+                    <div style="flex:1"></div>
+                    <div style="flex:1"><strong>Books</strong></div>
+                    <div style="flex:1"><strong>Price</strong></div>
+                    <div style="flex:1"><strong>Quantity</strong></div>
+                    
+                    <div style="flex:1"><strong>Action</strong></div>
+                </div>
+                {% if cart_items %}
+                {% for cart_item in cart_items %}
+                <div class="cart-row">
+                    <div style="flex:1">
+                     <img class="row-image" src="{{cart_item.book.coverImg}}"></div>
+                    <div style="flex:1"><p>{{cart_item.book.title}}</p></div>
+                    <div style="flex:1"><p>Rs.{{cart_item.book.price}}</p></div>
+                    <div style="flex:1"><p>{{cart_item.quantity}}</p></div>
+                  
+
+                    
+
+                    <a href="{% url 'book_detail' book_id=cart_item.book.pk %}"><button class="btn btn-info "><i class="bi bi-eye"></i></button></a>
+
+                    <div style="flex:1; margin-left: 10px;"><a href="{% url 'removecart' cart_item.id%}" class="btn btn-danger"><i class="bi bi-trash" aria-hidden="true"></i></a></div>
+
+                </div>
+            
+                {% endfor %}
+            </div>
+            {% else %}
+    <p>Your Cart is empty</p>
+{% endif %}
+        </div>
+    </div>
+</div>
+<div class="desc"></div>
+<style>
+
+    .row{
+        margin-top: 30px;
+    }
+    .box-element{
+        box-shadow: hsl(0, 0%, 80%) 0 0 16px;
+        background-color: #fff;
+        border-radius: 4px;
+        padding: 10px;
+    }
+
+    .cart-row{
+        display: flex;
+        align-items: flex-stretch;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #ececec;
+    }
+
+  
+    .row-image{
+        width: 100px;
+        height: 50px;
+    }
+
+    .btn:hover {
+        background-color: white;
+        color: black;
+        margin-right:10px;
+    }
+
+    .desc{
+        height:70px;
+    }
+
+
+
+
+</style>
+{% endblock content %}
+{%include "footer.html"%}

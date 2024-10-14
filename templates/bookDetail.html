@@ -1,0 +1,165 @@
+{% load static %}
+{% include "users/header4.html" %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4" id="bookimage">
+            <img src="{{ book.coverImg }}" alt="{{ book.title }}" class="img-fluid">
+        </div>
+        <div class="col-md-8">
+            <h2>{{ book.title }}</h2>
+            <p><strong>Author:</strong> {{ book.author }}</p>
+            <p class="price1"><strong>Price:</strong> Rs {{ book.price }}</p>
+            <div class="midbuy">
+              
+                
+                <div class="d-flex flex-row" id="item">
+                    <button id="add-to-cart-btn" style="margin-left:10px;" class="cart btn mt-1 mr-2 update-cart" data-toggle="modal" data-target="#addToCartModal">
+                        <a href="{% url 'buybook' book.bookID %}" style="text-decoration: none; font-size:17px; color:white;">
+                            <i class="fas fa-cart-plus"></i>Buy Book
+                        </a>
+                    </button>
+                    <button style="margin-left:60px;" class="wishlist btn mt-1 mr-2">
+                        <a href="{% url 'addwishlist' book.bookID %}" id="textbutton" style="text-decoration: none; font-size:17px;">
+                          <i class="fas fa-heart"></i> Add to Wishlist
+                        </a>
+                      </button>
+
+                      
+                      
+                </div>
+        </div>
+        <br>
+            <p><strong>Description:</strong> {{ book.description }}</p>
+            <p><strong>Rating:</strong> {{ book.rating }} out of 5</p>
+            <p><strong>Characters:</strong> {{ book.characters }}</p>
+            <p><strong>Number of Ratings:</strong> {{ book.numRatings }}</p>
+        </div>
+    </div>
+    
+          
+          
+  
+    <div class="desc"></div>
+
+    
+</div>
+{% if messages %}
+<div class="fixed-bottom" id="messagesize" style="right: 0; z-index: 0; min-width: 10px;">
+    <div class="alert alert-info fade show" role="alert" style="font-size: 14px; margin-bottom: 30px;">
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    </div>
+</div>
+<script>
+    // Hide alert message after 5 seconds
+    setTimeout(function(){
+        document.querySelector('.alert').style.display = 'none';
+    }, 5000);
+</script>
+{% endif %}
+<style>
+    .row{
+        margin-top: 30px;
+    }
+    #bookimage img{
+        height:470px;
+        width:350px;
+        min-height:470px;
+        max-height:470px;
+
+        
+    }
+    .price1{
+        color: rgb(255, 72, 0);
+        font-weight: 600;
+        font-size: 20px
+    }
+
+    .wishlist {
+        width: 200px;
+        height: 38px;
+        border-radius: 5px;
+        
+        background: rgba(255, 0, 0, 0.658);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: 0.5s all;
+        font-size: 15px;
+       
+        
+    
+    }
+    
+    .wishlist:hover {
+        color: white;
+        background-color:#de3918;
+        
+    }
+    
+     .cart{
+        background-color: rgba(0, 119, 255, 0.753);
+        color:white;
+        width: 200px;
+    }
+    
+    .cart:hover {
+         color: white;
+        background-color: #0767e3;;
+        
+    } 
+    
+    .fa-cart-plus, .fa-heart {
+        font-size: 23px;
+        
+        
+    }
+    
+    .fa-cart-plus{
+        color: white;
+        margin-right:5px;
+        
+        
+    }
+    
+    .fa-heart {
+        color:white;
+        
+    }
+
+    #item{
+        
+    
+    }
+    .desc{
+        height:50px;
+    }
+
+    #textbutton{
+        color:white;
+    }
+
+   #messagesize{
+    width:300px;
+    top:24%;
+    right:0%;
+    margin-left:800px;
+
+    
+   }
+   .button-margin{
+    margin-right: 7px;
+  }
+  .navbar-nav .dropdown-toggle .fas.fa-user {
+   
+    margin-right: 0 !important;
+   
+  }
+    
+</style>
+
+
+{%include "footer.html"%}

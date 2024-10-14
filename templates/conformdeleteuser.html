@@ -1,0 +1,7 @@
+<div class="btn-delcon">
+    <form action="{% url 'userdelete' %}" method="POST">
+      {% csrf_token %}
+      <button id="green" class="btn" name="cancel">Cancel</button>
+      <button id="red" class="btn" name="delete_account">Delete Account</button>
+    </form>
+</div>
